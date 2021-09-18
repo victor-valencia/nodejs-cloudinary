@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Node.js + Cloudinary</title>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.victorvr.com/img/favicon.png" style="margin-top: -8px;"/>
+        Node.js + Cloudinary
+      </a>
+
+      <form method="POST" action="upload" enctype="multipart/form-data" class="form-inline">
+        <div class="form-group">
+          <input type="file" class="form-control-file text-light mr-4" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-cloud-upload"></i> Upload</button>
+      </form>
+
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        
+        <% if(gallery.length == 0){ %>
+
+          <div class="jumbotron mt-4 mb-0" style="width: 100%;">
+            <h1 class="display-4">Empty collection</h1>
+            <p class="lead">For initial, select a file from your computer and send it to the server.</p>
+          </div>
+
+        <% } else { %>
+
+          <% gallery.forEach(function(item, i){ %>
+            <div class="col-sm-4  mt-4">
+              <div class="card">
+                <img class="card-img-top" src="<%= item.secure_url %>" alt="<%= item.asset_id %>" style="width: 100%;">
+                <div class="card-body p-0 text-center">
+                  <a type="button" href="<%= item.secure_url %>" target="_blank" class="btn btn-link"><%= item.public_id %></a>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted"><i class="fa fa-file-image-o"></i> <%= item.format %></small>
+                  <small class="text-muted float-right pt-1"><i class="fa fa-arrows-alt"></i> <%= item.width %> x <%= item.height %></small>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+
+        <% }; %>
+
+      </div>
+    </div>
+
+    <footer class="bg-dark mt-4">
+        <p class="text-white text-center pt-4 mb-0">Powered By:</p>
+        <ul class="nav justify-content-center bg-dark">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" width="90" height="90" class="d-inline-block align-top">
+            </a>                
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="padding-top: 34px;">
+              <img src="https://cloudinary-res.cloudinary.com/image/upload/dpr_2.0,c_scale,f_auto,q_auto,w_156,e_colorize,co_rgb:ffffff/cloudinary_logo_for_white_bg.svg" alt="Cloudinary Logo" width="150" height="30">
+            </a>
+          </li>
+        </ul>
+    </footer>
+    
+  </body>
+</html>
