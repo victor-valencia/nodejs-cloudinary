@@ -6,8 +6,7 @@ const localStorage = require('localStorage');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const multer = require('multer')
-
+const multer = require('multer');
 
 app.set('view engine', 'ejs');
 
