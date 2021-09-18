@@ -4,6 +4,7 @@
   "description": "Tutorial: Imagenes con Node.js y Clodinary",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "set HOST=localhost&& set PORT=8000&& node server.js"
   },
   "author": "Víctor Valencia Rico",
