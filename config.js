@@ -2,7 +2,6 @@ const dotenv = require('dotenv').config();
 const url = require('url');
 
 let cloudinaryURI = url.parse(process.env.CLOUDINARY_URL, false);
-// console.log(cloudinaryURI);
 
 module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'development',

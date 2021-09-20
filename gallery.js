@@ -4,13 +4,6 @@ const localStorage = require('localStorage');
 
 function Gallery(){
 
-    // CloudinarySDK.config({
-    //     cloud_name: config.CLOUDINARY.CLOUD_NAME,
-    //     api_key: config.CLOUDINARY.API_KEY,
-    //     api_secret: config.CLOUDINARY.API_SECRET
-    // }); 
-    // // PaypalSDK.configure(config.PAYPAL.configure);
-
 }
 
 //Get all images
@@ -41,14 +34,5 @@ Gallery.prototype.delete = function(public_id) {
     return gallery;
 
 }
-
-
-// // Returna la URL para procesar un pago fallido u otros errores
-// Paypal.prototype.getErrorURL = function() {
-
-//     return config.PAYPAL.url_error;
-
-// }
-
 
 module.exports = new Gallery()

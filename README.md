@@ -32,4 +32,4 @@ How can I change the value of `HOST`?. You can change the values using the `Hero
 - [Open an Issue](https://github.com/victor-valencia/nodejs-cloudinary/issues/new/)
 
 ### License
-Released under the [MIT license](https://github.com/victor-valencia/nodejs-cloudinary/blob/main/LICENSE), just like the Ghost project itself.
+Released under the [MIT license](https://github.com/victor-valencia/nodejs-cloudinary/blob/main/LICENSE).
