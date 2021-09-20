@@ -30,7 +30,6 @@ How can I change the value of `HOST`?. You can change the values using the `Hero
 
 ### Problems or need help?
 - [Open an Issue](https://github.com/victor-valencia/nodejs-cloudinary/issues/new/)
-- [Use GitHub Discussions](https://github.com/victor-valencia/nodejs-cloudinary/discussions)
 
 ### License
 Released under the [MIT license](https://github.com/victor-valencia/nodejs-cloudinary/blob/main/LICENSE), just like the Ghost project itself.
