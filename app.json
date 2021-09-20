@@ -4,14 +4,11 @@
     "logo": "https://www.victorvr.com/img/favicon.png",
     "repository": "https://github.com/victor-valencia/nodejs-cloudinary",    
     "addons": ["cloudinary"],
-    "env": {
-      "APP_PUBLIC_URL": {
-        "description": "Complete URL of your app including https (You can change it later in Config Vars)",
-        "value": "https://YOURAPPNAME.herokuapp.com"
-      },
+    "env": {      
       "HOST": {
-        "description": "Hostname of your server (By default '::' for deploy in Heroku)",
-        "value": "::"
+        "description": "Hostname of your server (By default '::' for deploy in Heroku) [You can change it later in Config Vars]",
+        "value": "::",
+        "required": true
       }
     }
   }
