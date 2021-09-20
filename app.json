@@ -2,10 +2,9 @@
     "name": "Deploy Node.js + Cloudinary on Heroku",
     "description": "Deploy latest Node.js + Cloudinary on Heroku",
     "logo": "https://www.victorvr.com/img/favicon.png",
-    "repository": "https://github.com/thelovekesh/ghost-v4-on-heroku",    
+    "repository": "https://github.com/victor-valencia/nodejs-cloudinary",    
     "addons": ["cloudinary"],
     "env": {
-      
       "APP_PUBLIC_URL": {
         "description": "Complete URL of your app including https (You can change it later in Config Vars)",
         "value": "https://YOURAPPNAME.herokuapp.com"

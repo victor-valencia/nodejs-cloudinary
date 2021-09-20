@@ -2,7 +2,7 @@
 const config = require('./config.js');
 // const cloudinary = require('./cloudinary.js');
 const cloudinary = require('cloudinary').v2;
-const localStorage = require('localStorage');
+const gallery = require('./gallery');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -38,11 +38,8 @@ console.log(`NODE_ENV=${config.NODE_ENV}`);
 // console.log(config);
 
 app.get('/', (req, res) => {
-//   res.send('Hello world');
-  var gallery = JSON.parse(localStorage.getItem('gallery')) || [];
 
-//   console.log(localStorage.getItem('key'));
-  res.render('pages/index', {gallery: gallery});
+  res.render('pages/index', {gallery: gallery.getAll()});
 
 });
 
@@ -58,12 +55,7 @@ app.post('/upload', (req, res, next) => {
       cloudinary.uploader.upload(req.file.path)
         .then((result) => {
 
-            var gallery = JSON.parse(localStorage.getItem('gallery')) || [];
-            gallery.unshift(result);
-
-            localStorage.setItem('gallery', JSON.stringify(gallery));
-
-            // console.log('cloudinary',result);
+            gallery.add(result);
             res.redirect('/');
             
         }).catch((error) => {
@@ -75,8 +67,28 @@ app.post('/upload', (req, res, next) => {
 
     //   res.json(req.file)
     })
-  })
+  }
+);
 
+app.get('/delete/:id', (req, res, next) => {
+    
+    console.log(req.params);
+    
+    cloudinary.uploader.destroy(req.params.id)
+        .then((result) => {
+
+            gallery.delete(req.params.id);
+            console.log(result);
+            res.redirect('/');
+            
+        }).catch((error) => {
+            res.status(500).send({
+                message: "failure",
+                error,
+            });
+        });
+
+});
 
 app.listen(config.PORT, config.HOST, function () {
   console.log(`App listening on http://${config.HOST}:${config.PORT}`);
